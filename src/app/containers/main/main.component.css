@@ -80,10 +80,10 @@ p{
   background-color: #212121;
   -webkit-transition: max-width 0.4s ease , min-width 0.4s ease;
   transition: max-width 0.4s ease , min-width 0.4s ease;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  -webkit-sender-select: none;
+  -moz-sender-select: none;
+  -ms-sender-select: none;
+  sender-select: none;
 }
 .Sidebar.is-collapsed {
   max-width: 50px;

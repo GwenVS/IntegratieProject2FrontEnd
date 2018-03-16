@@ -1,37 +1,50 @@
-<div class="google-cards " *ngFor="let gameSession of gameSessions; let index = index">
+<div *ngIf="!gameSessions">
+  <img src="../../../assets/loadingGif.gif">
+</div>
+<div *ngIf="gameSessions">
+  <div class="google-cards " *ngFor="let gameSession of gameSessions; let index = index">
 
-  <div class="google-card" [class.fade-in]="index==0">
-    <div class="google-card-cover">
-      <img *ngIf="gameSessionImages[index] != ''" class="gameSessionImage" [src]="domSanitizerService.bypassSecurityTrustUrl(gameSessionImages[index])"/>
-    </div>
-    <div class="google-card-content">
-      <h3>{{gameSession.title}}</h3>
-      <p>Game session ID: {{gameSession.gameSessionId}}</p>
-      <p>Organised by: <span class="username">{{gameSession.organisator}}</span></p>
-      <p>Organisator playing: {{gameSession.isOrganisatorPlaying}}</p>
-      <p>User can add: {{gameSession.allowUsersToAdd}}</p>
-      <p>add limit: {{gameSession.limit}}</p>
-      <p>selection limit: {{gameSession.selectionLimit}}</p>
-      <p>turn limit: {{gameSession.timer}}</p>
-      <div class="buttonCollection">
-        <div class="modernButtonContainer">
-          <button class="modernButton modernButtonPlay" (click)="onPlayClick($event)" [attr.id]="index"></button>
+    <div class="google-card" [class.fade-in]="index==0">
+      <div class="google-card-cover">
+        <img *ngIf="gameSessionImages[index] != ''" class="gameSessionImage"
+             [src]="domSanitizerService.bypassSecurityTrustUrl(gameSessionImages[index])"/>
+      </div>
+      <div class="google-card-content">
+        <h3>{{gameSession.title}}</h3>
+        <p>Game session ID: {{gameSession.gameSessionId}}</p>
+        <p>Organised by: <span class="username">{{gameSession.organisator}}</span></p>
+        <p>Organisator playing: {{gameSession.isOrganisatorPlaying}}</p>
+        <p>User can add: {{gameSession.allowUsersToAdd}}</p>
+        <p>add limit: {{gameSession.limit}}</p>
+        <p>selection limit: {{gameSession.selectionLimit}}</p>
+        <p>turn limit: {{gameSession.timer}}</p>
+        <div class="buttonCollection">
+          <div class="modernButtonContainer">
+            <button class="modernButton modernButtonPlay" (click)="onPlayClick($event)" [attr.id]="index"></button>
+          </div>
+
+          <div class="modernButtonContainer">
+            <button class="modernButton modernButtonEdit" (click)="onEditClick($event)" [attr.id]="index"
+                    *ngIf="gameSession.getIsOrganisator()"></button>
+          </div>
+
+          <div class="modernButtonContainer">
+            <button class="modernButton modernButtonSettings" (click)="onSettingsClick($event)"
+                    [attr.id]="index"></button>
+          </div>
         </div>
-
         <div class="modernButtonContainer">
           <button class="modernButton modernButtonEdit" (click)="onEditClick($event)" [attr.id]="index" *ngIf="gameSession.getIsOrganisator() || gameSession.getIsSubOrganistor()"></button>
+          <app-sharebuttons></app-sharebuttons>
         </div>
 
-        <div class="modernButtonContainer">
-          <button class="modernButton modernButtonSettings" (click)="onSettingsClick($event)" [attr.id]="index"></button>
-        </div>
       </div>
-      </div>
+    </div>
+    <div (click)="onAddClick()" class="plus-button"></div>
   </div>
-  <div (click)="onAddClick()" class="plus-button"></div>
-</div>
 
-<div *ngIf="gameSessions?.length == 0" class="text-center align-middle">
-  <h3 class="realmiddle">You have no session yet!</h3>
-  <div (click)="onAddClick()" class="plus-button"></div>
+  <div *ngIf="gameSessions?.length == 0" class="text-center align-middle">
+    <h3 class="realmiddle">You have no session yet!</h3>
+    <div (click)="onAddClick()" class="plus-button"></div>
+  </div>
 </div>

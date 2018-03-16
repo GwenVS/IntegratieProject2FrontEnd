@@ -1,8 +1,8 @@
 export class Notifications {
-  private startGame:Boolean;
-  private endGame:Boolean;
-  private yourTurn:Boolean;
-  private endTurn:Boolean;
+  public startGame:Boolean;
+  public endGame:Boolean;
+  public yourTurn:Boolean;
+  public endTurn:Boolean;
 
 
   constructor(startGame: Boolean, endGame: Boolean, yourTurn: Boolean, endTurn: Boolean) {

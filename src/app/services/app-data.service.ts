@@ -12,11 +12,12 @@ import {Notifications} from "../model/Notifications";
 import {Headers, RequestOptions} from "@angular/http";
 import {UserItem} from "../model/UserItem";
 import {MainThema} from "../model/MainThema";
+import * as Globals from '../../globals';
 
 
 @Injectable()
 export class AppDataService {
-  private springURL = "http://localhost:8080/api/private";
+  private springURL = Globals.baseUrl+"/api/private";
   public http;
 
   constructor(http: HttpClient) {

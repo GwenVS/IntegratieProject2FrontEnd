@@ -1,0 +1,13 @@
+<div class="Themecard flex-item">
+    <div class="ThemeImage">
+
+  </div>
+  <div class="ThemeTitle" (mouseenter)="changingCard()" (mouseleave)="stopChangingCard()">
+    {{theme.name}}
+    <div *ngIf="changing==true" class="deleteCard">
+    <button (click)="deleteTheme()">Delete</button>
+  </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,32 @@
+.flex-container {
+  width: 67vw;
+  height: auto;
+  border: solid black 2px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  padding: 2%;
+}
+
+app-card {
+  margin: auto;
+}
+
+.themename, .themedescription {
+  display: inline-block;
+  margin-left:auto; margin-right:0;
+  float: right;
+}
+
+.addCard {
+  width: 98%;
+  height: 98%;
+  padding: 20%;
+}
+
+

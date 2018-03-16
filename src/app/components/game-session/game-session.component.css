@@ -157,7 +157,7 @@ h1 {
 }
 
 .modernButtonSettings:after {
-  content: "SETTINGS";
+  content: "NOTIFY";
 }
 
 .modernButtonPlay:after {

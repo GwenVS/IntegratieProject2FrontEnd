@@ -12,14 +12,17 @@ import {USERNAME} from "../../services/auth.constant";
 })
 export class ProfileComponent implements OnInit{
 
-  @Input() public imageSrc: String;
-  @Input() public _user$: User;
-  @Output() userChanged: EventEmitter<User> = new EventEmitter<User>();
+   @Input() public _user$: User;
+   @Output() userChanged: EventEmitter<User> = new EventEmitter<User>();
+   updatedUser: RegisterUser;
+   public _passwordsAreTheSame: boolean = false;
+   public passwordError = "Passwords are not the same!";
+   copyUser: User;
+   updateUser: RegisterUser = new RegisterUser('','','','','','','', '');
+   @Input() public imageSrc: String;
   @Output() profilePictureChanged: EventEmitter<String> = new EventEmitter<String>();
 
-  updatedUser: RegisterUser;
-  private _passwordsAreTheSame: boolean = false;
-  public passwordError = "Passwords are not the same!";
+
   updateUserDetails: Boolean = true;
   message = '';
 

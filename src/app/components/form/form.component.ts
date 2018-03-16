@@ -8,7 +8,7 @@ import {HttpLoginServiceService} from "../../services/http-login-service.service
 })
 export class FormComponent {
   loginForm = false;
-  private service: HttpLoginServiceService;
+  public service: HttpLoginServiceService;
 
   constructor(service: HttpLoginServiceService){
     this.service = service;

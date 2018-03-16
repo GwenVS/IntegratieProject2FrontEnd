@@ -12,7 +12,7 @@ export class SignupFormComponent {
   private service: HttpLoginServiceService;
   registerUser: RegisterUser = new RegisterUser('','','','','','','', '');
   public label;
-  private _passwordsAreTheSame: boolean = false;
+  public _passwordsAreTheSame: boolean = false;
   public passwordError = "Passwords are not the same!";
   formHasErrors = false;
 

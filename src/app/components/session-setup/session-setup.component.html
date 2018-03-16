@@ -1,0 +1,30 @@
+<div class="flex-container" (myEvent)="myEvent($event)">
+  <app-card *ngFor="let theme of themes"
+            [theme]=theme>
+  </app-card>
+  <button class="Themecard flex-item">
+    <div *ngIf="create==true">
+      <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)">
+        <div class="themename">
+          <label for="name">Name:</label>
+          <input id="name" name="name" formControlName="name">
+        </div>
+        <div class="themedescription">
+          <label for="description">Description:</label>
+          <input id="description" name="description" formControlName="description">
+        </div>
+      </form>
+      <div>
+        <button (click)="cancelTheme()">
+          Cancel
+        </button>
+        <button type="submit" (click)="addTheme()">OK</button>
+      </div>
+    </div>
+
+    <div *ngIf="create==false" class="addCard" (click)="addCard()">
+      <p>+</p>
+    </div>
+  </button>
+</div>
+

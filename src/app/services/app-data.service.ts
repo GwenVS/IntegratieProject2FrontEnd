@@ -12,12 +12,12 @@ import {Notifications} from "../model/Notifications";
 import {Headers, RequestOptions} from "@angular/http";
 import {UserItem} from "../model/UserItem";
 import {MainThema} from "../model/MainThema";
+import * as Globals from '../../globals';
 
 
 @Injectable()
 export class AppDataService {
-  //Please work
-  private springURL = "https://kandoe.herokuapp.com/api/private";
+  private springURL = Globals.baseUrl+"/api/private";
   public http;
 
   constructor(http: HttpClient) {

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UserItem} from "../../model/UserItem";
 import {AppDataService} from "../../services/app-data.service";
 import {DomSanitizer} from "@angular/platform-browser";
@@ -14,6 +14,7 @@ import {USERNAME} from "../../services/auth.constant";
 export class GameSessionEditComponent implements OnInit {
 
   @Input() public chosenGameSessionId;
+  @Output() pageChanged: EventEmitter<any> = new EventEmitter<any>();
   users: UserItem[] = [];
   http;
   domSanitizerService;

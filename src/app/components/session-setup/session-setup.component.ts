@@ -1,7 +1,8 @@
 import {Component, OnInit, AfterViewInit} from '@angular/core';
 import {Http} from "@angular/http";
-import {Theme} from "./theme";
+import {Theme} from "../../model/theme";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import * as Globals from '../../../globals';
 
 @Component({
   selector: 'app-session-setup',
@@ -18,7 +19,7 @@ export class SessionSetupComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._http.get("https://kandoe.herokuapp.com/api/themes").subscribe(data => this.themes = data.json());
+    this._http.get(Globals.baseUrl+"/api/themes").subscribe(data => this.themes = data.json());
     this.myForm = new FormGroup({
       name: new FormControl('', [<any>Validators.required, <any>Validators.minLength(5), <any>Validators.maxLength(25)]),
       description: new FormControl('', [<any>Validators.required, <any>Validators.minLength(5), <any>Validators.maxLength(25)])
@@ -40,7 +41,7 @@ export class SessionSetupComponent implements OnInit {
 
   addTheme() {
     const theme = {themeId: 0, name: this.myForm.value.name, description: this.myForm.value.description};
-    this._http.post("https://kandoe.herokuapp.com/api/themes", theme).subscribe(theme => {
+    this._http.post(Globals.baseUrl+"/api/themes", theme).subscribe(theme => {
       this.themes.push(theme.json());
     });
     this.myForm.reset();

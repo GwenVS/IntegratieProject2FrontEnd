@@ -6,6 +6,7 @@ import {Headers, Http, RequestOptions} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import {DomSanitizer} from '@angular/platform-browser';
 import {User} from "../../model/User";
+import * as Globals from '../../../globals';
 
 @Component({
   selector: 'app-image-upload',
@@ -64,10 +65,10 @@ export class ImageUploadComponent implements OnInit {
 
   doUploadFile(){
     if(this.typeOfUpload === 'profilePicture'){
-      this.actionUrl = "https://kandoe.herokuapp.com/api/private/users/" + sessionStorage.getItem(USERNAME) + "/uploadImage";
+      this.actionUrl = Globals.baseUrl+"/api/private/users/" + sessionStorage.getItem(USERNAME) + "/uploadImage";
     }
     else if(this.typeOfUpload === 'gameSessionImage'){
-      this.actionUrl = "https://kandoe.herokuapp.com/api/private/users/" + sessionStorage.getItem(USERNAME) + "/sessions/" + this.createdSessionId + "/uploadImage";
+      this.actionUrl = Globals.baseUrl+"/api/private/users/" + sessionStorage.getItem(USERNAME) + "/sessions/" + this.createdSessionId + "/uploadImage";
     }
     else{
       this.imageData.emit(this.formData);
@@ -103,7 +104,7 @@ export class ImageUploadComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.actionUrl = "https://kandoe.herokuapp.com/api/private/users/" + sessionStorage.getItem(USERNAME) + "/uploadImage";
+    this.actionUrl = Globals.baseUrl+"/api/private/users/" + sessionStorage.getItem(USERNAME) + "/uploadImage";
   }
 
   sendPage(page){

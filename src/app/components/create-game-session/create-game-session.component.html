@@ -67,9 +67,13 @@
     </table>
 </div>
 
+<!--
 <app-create-main-theme (loadNext)="loadComponenent($event)" [nextStep]="'subTheme'" *ngIf="currentlyActive == 'theme'" [typeOfTheme]="'theme'" (mainThemeDetails)="onMainThemeDetailsReceived($event)" (imageData)="onImageDataReceived($event)" (isANewTheme)="onIsANewThemeReceived($event)"></app-create-main-theme>
+-->
 
+<!--
 <app-create-main-theme (loadNext)="loadComponenent($event)" [nextStep]="'session'" *ngIf="currentlyActive == 'subTheme'" [typeOfTheme]="'subtheme'" [mainTheme]="mainTheme" (mainThemeDetails)="onMainThemeDetailsReceived($event)"></app-create-main-theme>
+-->
 
 <div class="holder" *ngIf="sessionCreated && currentlyActive == 'picture'">
   <table width="100%">

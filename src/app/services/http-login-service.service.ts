@@ -7,6 +7,7 @@ import {RegisterUser} from "../model/RegisterUser";
 import {TOKEN_NAME, USERNAME} from "./auth.constant";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {User} from "../model/User";
+import * as Globals from '../../globals';
 
 
 //const httpOptions = {headers: new HttpHeaders()};
@@ -17,9 +18,8 @@ const headers = new HttpHeaders();
 @Injectable()
 export class HttpLoginServiceService {
   private baseURL = '/api/public';
-  private port = 8080;
-  private localUrl = 'https://kandoe.herokuapp.com';
-  private springURL = this.localUrl + this.baseURL;
+  private port = 9090;
+  private springURL = Globals.baseUrl + this.baseURL;
   private _error;
   private _registrationComplete = false;
 

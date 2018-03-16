@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Notification} from "rxjs/Notification";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Notifications} from "../../model/Notifications";
 import {AppDataService} from "../../services/app-data.service";
 
@@ -13,6 +12,7 @@ export class GameSessionSettingsComponent implements OnInit {
   notifications: Notifications = new Notifications(false, false, false, false);
   @Input() chosenGameSessionId: Number;
   @Input() username: String;
+  @Output() pageChanged: EventEmitter<any> = new EventEmitter<any>();
   successMessage: String = "Successfully updated notification settings!";
   success: Boolean = false;
 
@@ -35,5 +35,7 @@ export class GameSessionSettingsComponent implements OnInit {
         (error) => console.log(error.status)
       );
   }
-
+  goBack(event: any){
+    this.pageChanged.emit("session");
+  }
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {HttpLoginServiceService} from "../../services/http-login-service.service";
 import {UserService} from "../../services/user.service";
@@ -20,7 +20,7 @@ export class MainComponent implements OnInit{
   profile = false;
   profileImageUpload = false;
   user$: User;
-  page: string = 'session';
+  page = 'session';
   activeSessionsNumber: 0;
   chosenGameSessionId: Number;
   imageSrc = "https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png";
@@ -39,14 +39,17 @@ export class MainComponent implements OnInit{
   ngOnInit() {
     this.user$ = new User();
     this.appDataService.getUser(sessionStorage.getItem(USERNAME)).subscribe(data => {
-      this.user$ = data;
-    });
+        this.user$ = data;
+      },
+      err => this.router.navigateByUrl('login')
+    );
 
     this.appDataService.getProfilePicture().subscribe(
       (data) => {
         this.imageSrc = data;
       }
     );
+
   }
 
   ngAfterViewInit()
@@ -110,4 +113,6 @@ export class MainComponent implements OnInit{
     sessionStorage.clear();
     this.router.navigateByUrl("login");
   }
+
+
 }

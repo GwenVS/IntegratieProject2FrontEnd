@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Http} from "@angular/http";
+import {Http} from '@angular/http';
+import * as Globals from '../../../globals';
 
 @Component({
   selector: 'app-card',
@@ -9,10 +10,11 @@ import {Http} from "@angular/http";
 export class CardComponent implements OnInit {
 
   @Input() theme;
-  changing:boolean = false;
+  changing: boolean = false;
   @Output() public myEvent: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private _http: Http) { }
+  constructor(private _http: Http) {
+  }
 
   ngOnInit() {
   }
@@ -26,7 +28,7 @@ export class CardComponent implements OnInit {
   }
 
   deleteTheme() {
-    let url = "https://kandoe.herokuapp.com/api/theme?name="+ this.theme.name;
+    let url = Globals.baseUrl + '/api/theme?name=' + this.theme.name;
     this._http.delete(url).subscribe(theme => this.myEvent.emit(theme.json()));
   }
 

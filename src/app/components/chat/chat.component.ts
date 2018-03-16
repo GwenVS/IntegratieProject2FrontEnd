@@ -36,7 +36,7 @@ export class ChatComponent implements OnInit {
           }
         }
       });
-      that.stompClient.subscribe('/chatroom/' + /*this.session.gameSessionId*/1, function (message) {
+      that.stompClient.subscribe('/chatroom/' + /*this.session.gameSessionId*/1+'/chat', function (message) {
         that.pushMessage(JSON.parse(message.body));
       });
     });

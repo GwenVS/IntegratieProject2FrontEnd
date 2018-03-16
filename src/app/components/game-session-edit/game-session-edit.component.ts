@@ -130,5 +130,7 @@ export class GameSessionEditComponent implements OnInit {
     );
   }
 
-
+  goBack(event: any){
+    this.pageChanged.emit("session");
+  }
 }

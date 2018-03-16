@@ -1,8 +1,8 @@
 import {Component, OnInit, AfterViewInit} from '@angular/core';
 import {Http} from "@angular/http";
-import {Theme} from "../../model/theme";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import * as Globals from '../../../globals';
+import {Theme} from './theme';
 
 @Component({
   selector: 'app-session-setup',

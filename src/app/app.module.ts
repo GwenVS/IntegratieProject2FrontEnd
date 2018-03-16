@@ -69,7 +69,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     CreateMainThemeComponent,
     MainThemesComponent,
     CardComponent,
-    SessionSetupComponent
+    SessionSetupComponent,
     ChatComponent
   ],
   imports: [

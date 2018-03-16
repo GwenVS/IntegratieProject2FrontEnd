@@ -3,12 +3,12 @@ import {Http, Headers} from "@angular/http";
 import 'rxjs/add/operator/map';
 import {LoginUser} from "../model/loginUser";
 import {TOKEN_NAME, USERNAME} from "./auth.constant";
-import {User} from "../model/User";
+import * as Globals from '../../globals';
 
 @Injectable()
 export class AuthService {
 
-  static AUTH_TOKEN = 'http://localhost:9090/api/public/login';
+  static AUTH_TOKEN = Globals.baseUrl + '/api/public/login';
 
   constructor(private http: Http) {
   }

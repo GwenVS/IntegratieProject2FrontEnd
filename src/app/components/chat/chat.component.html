@@ -1,0 +1,11 @@
+<div>
+  <div class="chat-box">
+    <div *ngFor="let mes of chatroom">
+      {{mes.sender}}: {{mes.content}}
+    </div>
+  </div>
+  <form>
+    <input [(ngModel)]="message.content" [ngModelOptions]="{standalone: true}" id="content" type="text" class="form-control" autocomplete="off" #content>
+    <button class="btn btn-primary" (click)="sendMessage(content.value)" type="submit">Send</button>
+  </form>
+</div>

@@ -7,7 +7,7 @@ declare var require: any;
 const SockJS = require('sockjs-client');
 const Stomp = require('stompjs');
 import {Message} from '../../model/Message';
-import * as Globals from '../../../globals';
+import * as Globals from '../../../global';
 import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
